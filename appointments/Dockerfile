@@ -5,7 +5,9 @@ FROM python:3.8
 WORKDIR /appointments
 
 # Copy the requirements file into the container at /app
+RUN ls -al /
 COPY requirements.txt /appointments/
+
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
