@@ -2,21 +2,21 @@ version: '3'
 
 services:
   doctors:
-    image: ahmedyaar/microservice-doctors:tag
+    image: ahmedyaar/doctors:${DOCTORS_TAG:-latest}
     ports:
       - "9090:9090"
     networks:
       - microservices-network
 
   appointments:
-    image: ahmedyaar/microservice-appointments:tag
+    image: ahmedyaar/appointments:${APPOINTMENTS_TAG:-latest}
     ports:
       - "7070:7070"
     networks:
       - microservices-network
 
   frontend:
-    image: ahmedyaar/microservice-frontende:tag
+    image: ahmedyaar/frontend:${FRONTEND_TAG:-latest}
     ports:
       - "3000:3000"
     networks:
