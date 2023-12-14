@@ -11,7 +11,7 @@ COPY . /doctors/
 RUN pip install --no-cache-dir Flask==2.0.2
 
 # Copy the current directory contents into the container at /app
-COPY . /doctors
+# COPY . /doctors
 
 # Expose port 9090 to the outside world
 EXPOSE 9090
