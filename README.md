@@ -8,4 +8,5 @@ This is a sample application, which consists of
 - appointments: a backend app written in python, which shows list of appointments
 
 
-- This me testing my branch for pull request workfloq
+- This me testing my branch for pull request workflow
+- Testing the workflow on pull request
