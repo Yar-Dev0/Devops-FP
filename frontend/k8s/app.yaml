@@ -23,6 +23,7 @@ spec:
         - name: DOCTORS_API_URL
           value: /api/doctors
 
+# Phase 4
         resources:
           requests:
             memory: "64Mi"

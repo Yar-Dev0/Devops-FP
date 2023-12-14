@@ -20,6 +20,8 @@ spec:
         env:
         - name: APPOINTMENTS_DB_HOST
           value: appointments-db-service
+       
+# Phase 4       
         resources:
           requests:
             memory: "64Mi"

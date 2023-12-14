@@ -21,6 +21,7 @@ spec:
         - name: DOCTORS_DB_HOST
           value: doctors-db-service
 
+# Phase 4
         resources:
           requests:
             memory: "64Mi"
