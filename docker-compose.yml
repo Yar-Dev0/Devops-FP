@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  doctors:
+    image: ahmedyaar/microservice-doctors:tag
+    ports:
+      - "9090:9090"
+    networks:
+      - microservices-network
+
+  appointments:
+    image: ahmedyaar/microservice-appointments:tag
+    ports:
+      - "7070:7070"
+    networks:
+      - microservices-network
+
+  frontend:
+    image: ahmedyaar/microservice-frontende:tag
+    ports:
+      - "3000:3000"
+    networks:
+      - microservices-network
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: appointments_db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_password
+    ports:
+      - "3307:3306"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
