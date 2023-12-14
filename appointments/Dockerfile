@@ -10,7 +10,8 @@ COPY . /appointments/
 
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+pip install Flask==2.0.2
+
 
 # # Copy the current directory contents into the container at /app
 # COPY . /app
