@@ -31,6 +31,4 @@ jobs:
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
         run: |
           docker buildx create --use
-          docker login -u ahmedyaar -p $DOCKERHUB_TOKEN
-          docker buildx build --push --tag ${{ github.sha }} --file doctors/Dockerfile .
-          docker logout
+                 docker buildx build --push --tag ahmedyaar/doctors:${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'latest' || github.sha }} --file doctors/Dockerfile .
