@@ -21,6 +21,16 @@ spec:
         - name: DOCTORS_DB_HOST
           value: doctors-db-service
 
+# Bonus Part
+        volumeMounts:
+        - name: details-volume
+          mountPath: /user/details.txt
+      volumes:
+      - name: details-volume
+        configMap:
+          name: doctors-config
+
+
 # Phase 4
         resources:
           requests:
