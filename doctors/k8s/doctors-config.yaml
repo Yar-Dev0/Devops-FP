@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: doctors-config
+data:
+  details.txt: |
+    I am Ahmed Yar doing my DevOps final project
