@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: doctors-deployment
 spec:
+
   replicas: 3
   selector:
     matchLabels:
@@ -11,6 +12,21 @@ spec:
     metadata:
       labels:
         app: doctors
+
+    # BONUS PART 2       
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+
+      initContainers:
+      - name: init-container
+        image: ubuntu:latest
+        command: ['sh', '-c', 'echo "My name is Ahmed Yar" && sleep 5']
+
+
+
+
     spec:
       containers:
       - name: doctors

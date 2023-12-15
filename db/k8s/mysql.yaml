@@ -11,6 +11,18 @@ spec:
     metadata:
       labels:
         app: database
+
+    # BONUS PART 2       
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+
+      initContainers:
+      - name: init-container
+        image: ubuntu:latest
+        command: ['sh', '-c', 'echo "My name is Ahmed Yar" && sleep 5']
+
     spec:
       containers:
       - name: database
@@ -29,7 +41,7 @@ spec:
         ports:
         - containerPort: 3306
 
-# Phase 4
+        # Phase 4
         resources:
           requests:
             memory: "64Mi"
@@ -37,7 +49,7 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-    
+
         livenessProbe:
           httpGet:
             path: /healthz
@@ -60,6 +72,6 @@ spec:
   selector:
     app: database
   ports:
-    - protocol: TCP
-      port: 3306
-      targetPort: 3306
+  - protocol: TCP
+    port: 3306
+    targetPort: 3306
