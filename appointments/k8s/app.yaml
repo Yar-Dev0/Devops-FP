@@ -17,10 +17,20 @@ spec:
         image: ahmedyaar/microservice-appointments:latest
         ports:
         - containerPort: 7070
+
+# Bonus part
         env:
-        - name: APPOINTMENTS_DB_HOST
-          value: appointments-db-service
-       
+        - name: NAME
+          valueFrom:
+            secretKeyRef:
+              name: appointment-secret
+              key: NAME
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: appointment-secret
+              key: PASSWORD
+              
 # Phase 4       
         resources:
           requests:
