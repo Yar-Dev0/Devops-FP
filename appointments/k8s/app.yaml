@@ -19,12 +19,12 @@ spec:
         runAsUser: 1000
       initContainers:
       - name: init-container
-        image: ubuntu:latest
+        image: ubuntu:20.04
         command: ['sh', '-c', 'echo "My name is Ahmed Yar" && sleep 5']
 
       containers:
       - name: appointments
-        image: ahmedyaar/microservice-appointments:latest
+        image: ahmedyaar/microservice-appointments:1.0.0
         ports:
         - containerPort: 7070
 

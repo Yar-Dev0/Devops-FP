@@ -11,10 +11,22 @@ spec:
     metadata:
       labels:
         app: frontend
+
+    # BONUS PART 2       
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+
+      initContainers:
+      - name: init-container
+        image: ubuntu:20.04
+        command: ['sh', '-c', 'echo "My name is Ahmed Yar" && sleep 5']
+
     spec:
       containers:
       - name: frontend
-        image: ahmedyaar/microservice-frontende:latest
+        image: ahmedyaar/microservice-frontende:1.0.0
         ports:
         - containerPort: 3000
         env:
@@ -23,7 +35,7 @@ spec:
         - name: DOCTORS_API_URL
           value: /api/doctors
 
-# Phase 4
+        # Phase 4
         resources:
           requests:
             memory: "64Mi"
@@ -31,7 +43,7 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        
+
         livenessProbe:
           httpGet:
             path: /healthz
@@ -54,6 +66,6 @@ spec:
   selector:
     app: frontend
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 3000
+  - protocol: TCP
+    port: 80
+    targetPort: 3000

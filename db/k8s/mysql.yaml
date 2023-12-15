@@ -20,13 +20,13 @@ spec:
 
       initContainers:
       - name: init-container
-        image: ubuntu:latest
+        image: ubuntu:20.04
         command: ['sh', '-c', 'echo "My name is Ahmed Yar" && sleep 5']
 
     spec:
       containers:
       - name: database
-        image: mysql:latest
+        image: mysql:8.0
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
